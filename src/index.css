@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@variant dark (.dark &);
+
+/* Custom visual scrollbar style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(10, 11, 24, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(41, 44, 92, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 1);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 1);
+}
+
+/* Premium Print Styles for CV and Word documents */
+@media print {
+  /* Hide all elements on the page */
+  body * {
+    visibility: hidden !important;
+  }
+  
+  /* Make only our chosen print-target container and its descendants visible */
+  .print-target, .print-target * {
+    visibility: visible !important;
+  }
+  
+  /* Reset page margins and configure the printable container to occupy full A4 space */
+  .print-target {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Scifi Glitch font styles */
+@keyframes glitch {
+  0% {
+    text-shadow: 1px 0 0 rgba(99, 102, 241, 0.7), -1px 0 0 rgba(244, 63, 94, 0.7);
+  }
+  20% {
+    text-shadow: -1px -1px 0 rgba(99, 102, 241, 0.7), 1px 1px 0 rgba(244, 63, 94, 0.7);
+  }
+  40% {
+    text-shadow: 1px -1px 0 rgba(99, 102, 241, 0.7), -1px 1px 0 rgba(244, 63, 94, 0.7);
+  }
+  60% {
+    text-shadow: -1px 1px 0 rgba(99, 102, 241, 0.7), 1px -1px 0 rgba(244, 63, 94, 0.7);
+  }
+  80% {
+    text-shadow: 1px 1px 0 rgba(99, 102, 241, 0.7), -1px -1px 0 rgba(244, 63, 94, 0.7);
+  }
+  100% {
+    text-shadow: 1px 0 0 rgba(99, 102, 241, 0.7), -1px 0 0 rgba(244, 63, 94, 0.7);
+  }
+}
+
+.font-glitch {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  animation: glitch 2s infinite steps(2);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: rgb(15, 23, 42);
+}
+
+.dark .font-glitch {
+  color: rgb(224, 231, 255);
+}
+

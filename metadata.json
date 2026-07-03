@@ -1,0 +1,8 @@
+{
+  "name": "AI-Powered Portfolio Studio",
+  "description": "A clean, modern portfolio creator and showcase featuring interactive integrations for AI knowledge, HTML/CSS/JS playgrounds, Excel sheet visualizations, and Word document templates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

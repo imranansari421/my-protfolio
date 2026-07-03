@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "Portfolio": {
+      "title": "Portfolio",
+      "description": "The user's personal portfolio information including bio, links, and projects.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "title": { "type": "string" },
+        "bio": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "linkedinUrl": { "type": "string" },
+        "githubUrl": { "type": "string" },
+        "email": { "type": "string" },
+        "projects": { "type": "array" }
+      },
+      "required": ["name", "title", "bio", "avatarUrl", "linkedinUrl", "githubUrl", "email", "projects"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "An inquiry submitted by a visitor to the portfolio owner.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "projectType": { "type": "string" },
+        "details": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["unread", "read"] }
+      },
+      "required": ["name", "email", "phone", "projectType", "details", "submittedAt", "status"]
+    }
+  },
+  "firestore": {
+    "portfolios/{portfolioId}": {
+      "schema": "Portfolio",
+      "description": "Stores user portfolio configurations"
+    },
+    "inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Stores user submitted contact inquiries"
+    }
+  }
+}
